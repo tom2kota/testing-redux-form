@@ -5,8 +5,8 @@ import shortid from 'shortid';
 class CommentList extends Component {
 
     renderComments() {
-        return this.props.comments.map(comment => <div className="item" key={shortid.generate()}><i
-            className="right blue triangle icon"/>{comment}</div>)
+        return this.props.comments.map(comment => <li className="item" key={shortid.generate()}><i
+            className="right blue triangle icon"/> {comment}</li>)
     }
 
     render() {
@@ -18,8 +18,16 @@ class CommentList extends Component {
                 </div>
                 <div className="ui padded segment">
                     <div className="ui link list left aligned header large content"
-                         style={{overflow: 'scroll', whiteSpace: 'wrap', height: 'calc(100vh - 300px)'}}>
-                        {this.renderComments()}
+                         style={{
+                             overflow: 'scroll',
+                             whiteSpace: 'wrap',
+                             height: 'calc(100vh - 300px)',
+                         }}>
+                        <ul style={{
+                            listStyle: 'none',
+                            padding: 0,
+                            margin: 0
+                        }}> {this.renderComments()}</ul>
                     </div>
                 </div>
             </div>
