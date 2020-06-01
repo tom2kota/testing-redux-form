@@ -7,9 +7,9 @@ let wrapped;
 beforeEach(() => wrapped = mount(<Root><CommentBox/></Root>))
 afterEach(() => wrapped.unmount())
 
-it('shows input field & button in CommentBox component', () => {
+it('shows 1 input field & 2 buttons in CommentBox component', () => {
         expect(wrapped.find('input').length).toEqual(1);
-        expect(wrapped.find('button').length).toEqual(1);
+        expect(wrapped.find('button').length).toEqual(2);
     }
 )
 
