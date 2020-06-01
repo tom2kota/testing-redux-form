@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {saveComment} from "actions";
+import {saveComment, fetchComments} from "actions";
 
 class CommentBox extends Component {
 
@@ -45,7 +45,15 @@ class CommentBox extends Component {
                             ADD MESSAGE
                         </button>
                     </div>
+                    <br/>
                 </form>
+                <div className="field">
+                    <button onClick={this.props.fetchComments}
+                            className="fetch-comments ui fluid yellow large labeled icon button">
+                        <i className="download icon"/>
+                        FETCH COMMENTS
+                    </button>
+                </div>
             </div>
         )
     }
@@ -53,4 +61,4 @@ class CommentBox extends Component {
 
 const mapStateToProps = null
 
-export default connect(mapStateToProps, {saveComment})(CommentBox)
+export default connect(mapStateToProps, {saveComment, fetchComments})(CommentBox)
