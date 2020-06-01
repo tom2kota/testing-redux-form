@@ -7,29 +7,29 @@ let wrapped;
 beforeEach(() => wrapped = mount(<Root><CommentBox/></Root>))
 afterEach(() => wrapped.unmount())
 
-it('shows a textarea & button in CommentBox component', () => {
-        expect(wrapped.find('textarea').length).toEqual(1);
+it('shows input field & button in CommentBox component', () => {
+        expect(wrapped.find('input').length).toEqual(1);
         expect(wrapped.find('button').length).toEqual(1);
     }
 )
 
-describe('the textarea', () => {
+describe('input field', () => {
 
     beforeEach(() => {
-        wrapped.find('textarea').simulate('change', {
+        wrapped.find('input').simulate('change', {
             target: {value: 'new comment'}
         });
         wrapped.update();
     })
 
-    it('has a text area that users can type in', () => {
-        expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
+    it('has input field that users can type in', () => {
+        expect(wrapped.find('input').prop('value')).toEqual('new comment')
     })
 
-    it('when form is submitted, textarea gets emptied', () => {
+    it('when form is submitted, input field gets emptied', () => {
         wrapped.find('form').simulate('submit');
         wrapped.update();
-        expect(wrapped.find('textarea').prop('value')).toEqual('')
+        expect(wrapped.find('input').prop('value')).toEqual('')
     })
 
 })
